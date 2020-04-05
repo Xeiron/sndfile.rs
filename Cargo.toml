@@ -7,9 +7,9 @@ license = "MIT"
 
 description = "A library for reading and writing audio files."
 readme = "README.md"
-documentation = "https://docs.rs/sndfile"
+documentation = "https://docs.rs/sndfile.rs"
 
-repository = "https://github.com/Xeiron/sndfile"
+repository = "https://github.com/Xeiron/sndfile.rs"
 keywords = ["libsndfile", "sound", "audio", "encoding", "compression"]
 categories = [ "multimedia", "multimedia::audio", "multimedia::encoding", "api-bindings", "compression" ]
 
@@ -23,10 +23,10 @@ lazy_static = "1"
 ndarray = { version = "0.13", optional = true }
 
 [badges]
-appveyor = { repository = "Xeiron/sndfile" }
-travis-ci = { repository = "Xeiron/sndfile" }
+appveyor = { repository = "Xeiron/sndfile.rs" }
+travis-ci = { repository = "Xeiron/sndfile.rs" }
 
-is-it-maintained-issue-resolution = { repository = "Xeiron/sndfile" }
-is-it-maintained-open-issues = { repository = "Xeiron/sndfile" }
+is-it-maintained-issue-resolution = { repository = "Xeiron/sndfile.rs" }
+is-it-maintained-open-issues = { repository = "Xeiron/sndfile.rs" }
 
 maintenance = { status = "passively-maintained" }
