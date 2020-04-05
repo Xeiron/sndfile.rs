@@ -23,14 +23,14 @@ features = ["ndarray_features"]
 ````
 
 # Example
-```rust
+```ignore
 extern crate sndfile;
 extern crate ndarray;
 
 fn main() {
   use sndfile::*;
   let mut snd = sndfile::OpenOptions::ReadOnly(ReadOptions::Auto).from_path(
-    "/mnt/st4t_0/tuxzz/muz/muz0/Call My Name/13.Loow.flac"
+    "./sample_song.flac"
   ).unwrap();
   let data: ndarray::Array2<f32> = snd.read_all_to_ndarray().unwrap();
 
