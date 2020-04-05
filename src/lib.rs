@@ -5,7 +5,7 @@
 // or distributed except according to those terms.
 
 /*!
-A safe rust wrapper of [libsndfile](http://www.mega-nerd.com/libsndfile/).
+A safe rust wrapper of [libsndfile](http://www.mega-nerd.com/libsndfile/).  
 With this crate, you can read or save audio files.
 
 # Getting started

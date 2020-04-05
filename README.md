@@ -1,8 +1,13 @@
 sndfile.rs
 ==============
 
-A safe rust wrapper of [libsndfile](http://www.mega-nerd.com/libsndfile/).
+A safe rust wrapper of [libsndfile](http://www.mega-nerd.com/libsndfile/).  
 With this crate, you can reade or save audio files.
+
+[![Travis-CI Status](https://travis-ci.org/Xeiron/sndfile.rs.svg?branch=master)](https://travis-ci.org/Xeiron/sndfile.rs)
+[![Latest version](https://img.shields.io/crates/v/sndfile.svg)](https://crates.io/crates/sndfile)
+[![Documentation](https://docs.rs/sndfile/badge.svg)](https://docs.rs/sndfile)
+[![License](https://img.shields.io/crates/l/sndfile.svg)](https://github.com/Xeiron/sndfile.rs#license)
 
 # Getting Started
 
