@@ -1,8 +1,6 @@
 language: rust
 matrix:
   include:
-    - os: windows
-      rust: stable
     - rust: stable
       before_install:
         - sudo apt-get update
