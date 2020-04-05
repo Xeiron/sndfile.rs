@@ -1,13 +1,13 @@
 [package]
 name = "sndfile"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["tuxzz <tuku@tuxzz.org>"]
 edition = "2018"
 license = "MIT"
 
 description = "A library for reading and writing audio files."
 readme = "README.md"
-documentation = "https://docs.rs/sndfile.rs"
+documentation = "https://docs.rs/sndfile"
 
 repository = "https://github.com/Xeiron/sndfile.rs"
 keywords = ["libsndfile", "sound", "audio", "encoding", "compression"]
