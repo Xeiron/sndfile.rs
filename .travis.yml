@@ -3,22 +3,11 @@ matrix:
   include:
     - os: osx
       rust: stable
+    - os: windows
+      rust: stable
     - rust: stable
-      script:
-        - cargo test --all-features
-        - cargo clean
-        - cargo test
     - rust: beta
-      script:
-        - cargo test --all-features
-        - cargo clean
-        - cargo test
     - rust: nightly
-      script:
-        - cargo test --all-features
-        - cargo clean
-        - cargo test
-
     - rust: stable
       before_script:
         - pip install 'travis-cargo<0.2' --user && export PATH=$HOME/.local/bin:$PATH
