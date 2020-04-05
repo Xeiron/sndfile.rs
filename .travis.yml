@@ -1,13 +1,20 @@
 language: rust
 matrix:
   include:
-    - os: osx
-      rust: stable
     - os: windows
       rust: stable
     - rust: stable
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get -y install libsndfile1-dev
     - rust: beta
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get -y install libsndfile1-dev
     - rust: nightly
+      before_install:
+        - sudo apt-get update
+        - sudo apt-get -y install libsndfile1-dev
     - rust: stable
       before_script:
         - pip install 'travis-cargo<0.2' --user && export PATH=$HOME/.local/bin:$PATH
