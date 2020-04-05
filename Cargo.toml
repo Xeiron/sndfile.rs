@@ -1,6 +1,6 @@
 [package]
 name = "sndfile"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["tuxzz <tuku@tuxzz.org>"]
 edition = "2018"
 license = "MIT"
