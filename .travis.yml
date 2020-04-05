@@ -1,0 +1,32 @@
+language: rust
+matrix:
+  include:
+    - os: osx
+      rust: stable
+    - rust: stable
+      script:
+        - cargo test --all-features
+        - cargo clean
+        - cargo test
+    - rust: beta
+      script:
+        - cargo test --all-features
+        - cargo clean
+        - cargo test
+    - rust: nightly
+      script:
+        - cargo test --all-features
+        - cargo clean
+        - cargo test
+
+    - rust: stable
+      before_script:
+        - pip install 'travis-cargo<0.2' --user && export PATH=$HOME/.local/bin:$PATH
+      script:
+        - cargo doc --no-deps --all-features
+      after_success:
+        - travis-cargo --only nightly doc-upload
+script:
+  - cargo test --all-features
+  - cargo clean
+  - cargo test

@@ -1,0 +1,32 @@
+[package]
+name = "sndfile"
+version = "0.0.0"
+authors = ["tuxzz <tuku@tuxzz.org>"]
+edition = "2018"
+license = "MIT"
+
+description = "A library for reading and writing audio files."
+readme = "README.md"
+documentation = "https://docs.rs/sndfile"
+
+repository = "https://github.com/Xeiron/sndfile"
+keywords = ["libsndfile", "sound", "audio", "encoding", "compression"]
+categories = [ "multimedia", "multimedia::audio", "multimedia::encoding", "api-bindings", "compression" ]
+
+[features]
+default = []
+ndarray_features = ["ndarray"]
+
+[dependencies]
+sndfile-sys = "0.2"
+lazy_static = "1"
+ndarray = { version = "0.13", optional = true }
+
+[badges]
+appveyor = { repository = "Xeiron/sndfile" }
+travis-ci = { repository = "Xeiron/sndfile" }
+
+is-it-maintained-issue-resolution = { repository = "Xeiron/sndfile" }
+is-it-maintained-open-issues = { repository = "Xeiron/sndfile" }
+
+maintenance = { status = "passively-maintained" }
