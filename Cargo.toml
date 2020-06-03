@@ -1,6 +1,6 @@
 [package]
 name = "sndfile"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["tuxzz <tuku@tuxzz.org>"]
 edition = "2018"
 license = "MIT"
@@ -21,6 +21,13 @@ ndarray_features = ["ndarray"]
 sndfile-sys = "0.2"
 lazy_static = "1"
 ndarray = { version = "0.13", optional = true }
+
+[dev-dependencies]
+tempfile = "3"
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]
 
 [badges]
 appveyor = { repository = "Xeiron/sndfile.rs" }

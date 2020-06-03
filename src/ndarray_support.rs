@@ -13,7 +13,6 @@ pub trait SndFileNDArrayIO<T> {
 
 impl SndFileNDArrayIO<i16> for super::SndFile {
   fn read_to_ndarray(&mut self, mut dst: ArrayViewMut2<i16>) -> Result<usize, ()> {
-    assert_eq!(dst.ndim(), 2);
     assert_eq!(dst.shape()[1], self.get_channels());
     match dst.as_slice_mut() {
       Some(s) => self.read_to_slice(s),
@@ -22,7 +21,6 @@ impl SndFileNDArrayIO<i16> for super::SndFile {
   }
 
   fn write_from_ndarray(&mut self, src: ArrayView2<i16>) -> Result<usize, ()> {
-    assert_eq!(src.ndim(), 2);
     assert_eq!(src.shape()[1], self.get_channels());
     match src.as_slice() {
       Some(s) => self.write_from_slice(s),
@@ -39,7 +37,6 @@ impl SndFileNDArrayIO<i16> for super::SndFile {
 
 impl SndFileNDArrayIO<i32> for super::SndFile {
   fn read_to_ndarray(&mut self, mut dst: ArrayViewMut2<i32>) -> Result<usize, ()> {
-    assert_eq!(dst.ndim(), 2);
     assert_eq!(dst.shape()[1], self.get_channels());
     match dst.as_slice_mut() {
       Some(s) => self.read_to_slice(s),
@@ -48,7 +45,6 @@ impl SndFileNDArrayIO<i32> for super::SndFile {
   }
 
   fn write_from_ndarray(&mut self, src: ArrayView2<i32>) -> Result<usize, ()> {
-    assert_eq!(src.ndim(), 2);
     assert_eq!(src.shape()[1], self.get_channels());
     match src.as_slice() {
       Some(s) => self.write_from_slice(s),
@@ -65,7 +61,6 @@ impl SndFileNDArrayIO<i32> for super::SndFile {
 
 impl SndFileNDArrayIO<f32> for super::SndFile {
   fn read_to_ndarray(&mut self, mut dst: ArrayViewMut2<f32>) -> Result<usize, ()> {
-    assert_eq!(dst.ndim(), 2);
     assert_eq!(dst.shape()[1], self.get_channels());
     match dst.as_slice_mut() {
       Some(s) => self.read_to_slice(s),
@@ -74,7 +69,6 @@ impl SndFileNDArrayIO<f32> for super::SndFile {
   }
 
   fn write_from_ndarray(&mut self, src: ArrayView2<f32>) -> Result<usize, ()> {
-    assert_eq!(src.ndim(), 2);
     assert_eq!(src.shape()[1], self.get_channels());
     match src.as_slice() {
       Some(s) => self.write_from_slice(s),
@@ -91,7 +85,6 @@ impl SndFileNDArrayIO<f32> for super::SndFile {
 
 impl SndFileNDArrayIO<f64> for super::SndFile {
   fn read_to_ndarray(&mut self, mut dst: ArrayViewMut2<f64>) -> Result<usize, ()> {
-    assert_eq!(dst.ndim(), 2);
     assert_eq!(dst.shape()[1], self.get_channels());
     match dst.as_slice_mut() {
       Some(s) => self.read_to_slice(s),
@@ -100,7 +93,6 @@ impl SndFileNDArrayIO<f64> for super::SndFile {
   }
 
   fn write_from_ndarray(&mut self, src: ArrayView2<f64>) -> Result<usize, ()> {
-    assert_eq!(src.ndim(), 2);
     assert_eq!(src.shape()[1], self.get_channels());
     match src.as_slice() {
       Some(s) => self.write_from_slice(s),

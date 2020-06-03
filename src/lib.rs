@@ -5,7 +5,7 @@
 // or distributed except according to those terms.
 
 /*!
-A safe rust wrapper of [libsndfile](http://www.mega-nerd.com/libsndfile/).  
+A safe rust wrapper of [libsndfile](http://www.mega-nerd.com/libsndfile/).
 With this crate, you can read or save audio files.
 
 # Getting started
@@ -69,7 +69,10 @@ use std::path::Path;
 use std::sync::Mutex;
 
 mod format;
+
+#[cfg(test)]
 mod test;
+
 pub use format::{
   check_format, default_subtype, get_supported_major_format_dict,
   get_supported_subtype_format_dict, Endian, MajorFormat, MajorInfo, SubtypeFormat, SubtypeInfo,
@@ -535,7 +538,7 @@ impl SndFileIO<i16> for SndFile {
   }
 
   fn read_all_to_vec(&mut self) -> Result<Vec<i16>, ()> {
-    let n = self.len()? as usize;
+    let n = self.len()? as usize * self.channels;
     self.seek(SeekFrom::Start(0))?;
     let mut buf = vec![0; n];
     self.read_to_slice(&mut buf).map(|_| buf)
@@ -580,7 +583,7 @@ impl SndFileIO<i32> for SndFile {
   }
 
   fn read_all_to_vec(&mut self) -> Result<Vec<i32>, ()> {
-    let n = self.len()? as usize;
+    let n = self.len()? as usize * self.channels;
     self.seek(SeekFrom::Start(0))?;
     let mut buf = vec![0; n];
     self.read_to_slice(&mut buf).map(|_| buf)
@@ -625,7 +628,7 @@ impl SndFileIO<f32> for SndFile {
   }
 
   fn read_all_to_vec(&mut self) -> Result<Vec<f32>, ()> {
-    let n = self.len()? as usize;
+    let n = self.len()? as usize * self.channels;
     self.seek(SeekFrom::Start(0))?;
     let mut buf = vec![0.0; n];
     self.read_to_slice(&mut buf).map(|_| buf)
@@ -670,7 +673,7 @@ impl SndFileIO<f64> for SndFile {
   }
 
   fn read_all_to_vec(&mut self) -> Result<Vec<f64>, ()> {
-    let n = self.len()? as usize;
+    let n = self.len()? as usize * self.channels;
     self.seek(SeekFrom::Start(0))?;
     let mut buf = vec![0.0; n];
     self.read_to_slice(&mut buf).map(|_| buf)
