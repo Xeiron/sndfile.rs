@@ -43,7 +43,7 @@ fn main() {
   let samplerate = snd.get_samplerate();
   let n_frame = snd.len().unwrap();
   let n_channels = snd.get_channels();
-  let title = snd.get_tag(TagType::Title);
+  let title = snd.get_tag(TagType::Title).unwrap();
   println!("Loaded song `{}`:", title);
   println!("  Length: {:.2} seconds", n_frame as f64 / samplerate as f64);
   println!("  Sample rate: {} Hz", samplerate);

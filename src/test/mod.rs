@@ -1,6 +1,7 @@
 use crate::*;
 use tempfile::TempDir;
 mod test_issue_1;
+mod test_issue_3;
 
 #[test]
 fn supported_format() {
@@ -79,7 +80,7 @@ fn file_io_ok_0() {
     for chunk in buf.chunks(DESIRED_BUF.len()) {
       assert_eq!(chunk[..], DESIRED_BUF[..]);
     }
-    assert_eq!(snd.get_tag(TagType::Title), TAG_STR);
+    assert_eq!(snd.get_tag(TagType::Title).unwrap(), TAG_STR);
   }
   std::fs::remove_file(&tmp_path).unwrap();
 }

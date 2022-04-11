@@ -37,7 +37,7 @@ fn main() {
   let samplerate = snd.get_samplerate();
   let n_frame = snd.len().unwrap();
   let n_channels = snd.get_channels();
-  let title = snd.get_tag(TagType::Title);
+  let title = snd.get_tag(TagType::Title).unwrap();
   println!("Loaded song `{}`:", title);
   println!("  Length: {:.2} seconds", n_frame as f64 / samplerate as f64);
   println!("  Sample rate: {} Hz", samplerate);
@@ -740,11 +740,18 @@ impl SndFile {
   }
 
   /// Get tag string, e.g., artist, album, etc.
-  pub fn get_tag(&self, t: TagType) -> String {
+  pub fn get_tag(&self, t: TagType) -> Option<String> {
     let s_ptr =
       unsafe { sndfile_sys::sf_get_string(self.unsafe_fields.sndfile_ptr, tag_type_to_flags(t)) };
-    let c_str = unsafe { std::ffi::CStr::from_ptr(s_ptr) };
-    c_str.to_string_lossy().into_owned()
+
+    unsafe {
+        if let Some(ptr) = s_ptr.as_ref() {
+            let c_str = std::ffi::CStr::from_ptr(ptr);
+            Some(c_str.to_string_lossy().into_owned())
+        } else {
+            None
+        }
+    }
   }
 
   /// Set tag string
