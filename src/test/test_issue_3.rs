@@ -9,7 +9,7 @@ fn issue_3_no_tags() {
   let tmp_path = tmp_dir.as_ref().join("issue_3_no_tags.wav");
   std::fs::write(&tmp_path, DATA).unwrap();
 
-  let mut snd = OpenOptions::ReadOnly(ReadOptions::Auto).from_path(&tmp_path).unwrap();
+  let snd = OpenOptions::ReadOnly(ReadOptions::Auto).from_path(&tmp_path).unwrap();
   
   // Empty header, should not have any tag set
   assert_eq!(snd.get_tag(TagType::Title), None);
@@ -58,7 +58,7 @@ fn issue_3_some_tags() {
 
   // Check the file
   {
-    let mut snd = OpenOptions::ReadOnly(ReadOptions::Auto)
+    let snd = OpenOptions::ReadOnly(ReadOptions::Auto)
       .from_path(&tmp_path)
       .unwrap();
     

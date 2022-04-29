@@ -494,7 +494,7 @@ impl Drop for UnsafeSndFile {
           .to_str()
           .unwrap()
       };
-      panic!(format!("Failed to call `sf_close`: {}", err_msg));
+      panic!("Failed to call `sf_close`: {}", err_msg);
     }
   }
 }
