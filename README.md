@@ -12,16 +12,17 @@ With this crate, you can read or save audio files.
 # Getting Started
 
 [sndfile.rs is available on crates.io](https://crates.io/crates/sndfile).
+
 With minimal features:
 ````toml
 [dependencies]
-sndfile = "0.0"
+sndfile = "0.1"
 ````
 
 With ndarray supports:
 ````toml
 [dependencies.sndfile]
-version = "0.0"
+version = "0.1"
 features = ["ndarray_features"]
 ````
 
