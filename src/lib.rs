@@ -415,8 +415,8 @@ impl OpenOptions {
       };
       if sndfile_ptr.is_null() {
         unsafe {
-          Box::from_raw(vio_user_ptr);
-          Box::from_raw(vio_ptr);
+          drop(Box::from_raw(vio_user_ptr));
+          drop(Box::from_raw(vio_ptr));
         }
         Err(sf_err_code_to_enum(unsafe {
           sndfile_sys::sf_error(sndfile_ptr)
@@ -485,8 +485,8 @@ impl Drop for UnsafeSndFile {
   fn drop(&mut self) {
     let err_code = unsafe { sndfile_sys::sf_close(self.sndfile_ptr) };
     unsafe {
-      Box::from_raw(self.vio_user_ptr);
-      Box::from_raw(self.vio_ptr);
+      drop(Box::from_raw(self.vio_user_ptr));
+      drop(Box::from_raw(self.vio_ptr));
     }
     if err_code != 0 {
       let err_msg = unsafe {
